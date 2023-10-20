@@ -21,7 +21,7 @@ iniciar()
 function iniciar () {
     
     let inicio = prompt("Bienvenido. Ingrese la opcion que desea realizar: \n\n1. Agregar un Chofer \n2. Ordenar por valor mas economico \n3. Modificar el valor \n4. Buscar por vehiculo \n5. Buscar por valor");
-
+    
         switch (inicio) {
             case "1":
                 agregarChofer()
@@ -52,6 +52,7 @@ function agregarChofer(){
     console.table(lista)
 
     alert("Listo, el chofer ya fue ingresado al sistema.")
+    iniciar()
 }
 
 function ordenarPorValor(){
@@ -66,6 +67,7 @@ function ordenarPorValor(){
     }
     )
     console.table(lista)
+    iniciar()
 }
 
 function modificarValor(){
@@ -77,16 +79,19 @@ function modificarValor(){
         }
     })
     console.table(actualizado)
+    iniciar()
 }
 
 function buscarVehiculo(){
     let buscar = prompt("¿Que vehiculo necesitas?")
     let resultado = lista.filter((x)=>x.vehiculo.includes(buscar))
     console.table(resultado)
+    iniciar()
 }
 
 function buscarValor(){
     let valor = parseFloat(prompt("¿Que precio estas dispuesto a pagar?"))
     let resultado = lista.filter ( (x)=> (x.valorHora == valor) )
     console.table(resultado)
+    iniciar()
 }
