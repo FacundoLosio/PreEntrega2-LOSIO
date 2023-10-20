@@ -15,17 +15,44 @@ let chofer5 = new Chofer("camioneta", "Carlos", 2500);
 let lista = [chofer1, chofer2, chofer3, chofer4, chofer5] ;
 
 
+iniciar()
+
+
+function iniciar () {
+    
+    let inicio = prompt("Bienvenido. Ingrese la opcion que desea realizar: \n\n1. Agregar un Chofer \n2. Ordenar por valor mas economico \n3. Modificar el valor \n4. Buscar por vehiculo \n5. Buscar por valor");
+
+        switch (inicio) {
+            case "1":
+                agregarChofer()
+                break;
+            case "2":
+                ordenarPorValor()
+                break;
+            case "3":
+                modificarValor()
+                break;
+            case "4":
+                buscarVehiculo()
+                break;
+            case "5":
+                buscarValor()
+                break;  
+        }
+}
+
 function agregarChofer(){
     let vehiculo  = prompt("¿Que vehiculo tenes?")
     let nombre = prompt("¿Como te llamas?")
     let valorHora = parseFloat(prompt("¿Que valor tiene la hora de tus servicios?"))
 
+    
     let chofer = new Chofer(vehiculo, nombre, valorHora)
     lista.push(chofer)
-
     console.table(lista)
-}
 
+    alert("Listo, el chofer ya fue ingresado al sistema.")
+}
 
 function ordenarPorValor(){
     lista.sort( (a, b) => {
@@ -41,8 +68,7 @@ function ordenarPorValor(){
     console.table(lista)
 }
 
-
-function modificarValor (){
+function modificarValor(){
     let actualizado = lista.map((x) => {
         return {
             vehiculo: x.vehiculo,
